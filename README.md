@@ -4,7 +4,7 @@ This is an [Obsidian.md](https://obsidian.md) plugin to fix [some issues of the 
 
 ## Installation
 
-Since this plugin is still awaiting the approval from the Obsidian team, it's not available in the community plugin browser yet.
+Since this plugin is still awaiting approval from the Obsidian team, it's not available in the community plugin browser yet.
 
 But you can install the latest beta release using [BRAT](https://github.com/TfTHacker/obsidian42-brat).
 
