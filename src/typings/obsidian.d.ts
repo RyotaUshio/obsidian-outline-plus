@@ -8,7 +8,7 @@ interface OutlineItemDom {
     innerEl: HTMLElement;
     view: OutlineView;
     prerender(): void;
-    setCollapsible(): void;
+    setCollapsible(collapsible: boolean): void;
 }
 
 interface VChildren {
