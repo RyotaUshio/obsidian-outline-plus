@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-outline-plus",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "An Obsidian.md plugin to fix issues of the built-in outline view & optionally render markdown in it.",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",

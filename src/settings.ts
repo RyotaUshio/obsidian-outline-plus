@@ -1,5 +1,6 @@
 import { PluginSettingTab, Setting } from 'obsidian';
 import OutlinePlus from './main';
+import { OutlineView } from 'typings/obsidian';
 
 
 export interface OutlinePlusSettings {
@@ -34,6 +35,11 @@ export class OutlinePlusSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		this.addToggleSetting('renderMarkdown').setName('Render markdown in outline');
+		this.addToggleSetting('renderMarkdown', () => {
+			this.plugin.app.workspace.getLeavesOfType('outline').forEach((leaf) => {
+				const view = leaf.view as OutlineView;
+				view.update();
+			});
+		}).setName('Render markdown in outline');
 	}
 }

@@ -1,6 +1,8 @@
 import { FileView, HeadingCache } from 'obsidian';
 
-interface OutlineView extends FileView {}
+interface OutlineView extends FileView {
+    update(): void;
+}
 
 interface OutlineItemDom {
     heading: HeadingCache;
