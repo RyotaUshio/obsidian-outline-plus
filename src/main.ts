@@ -2,7 +2,7 @@ import { Plugin, HeadingCache, MarkdownRenderer } from 'obsidian';
 import { around } from 'monkey-around';
 
 import { DEFAULT_SETTINGS, OutlinePlusSettings, OutlinePlusSettingTab } from 'settings';
-import { OutlineItemDom } from 'typings/obsidian';
+import { OutlineItemDom, OutlineView } from 'typings/obsidian';
 
 
 export default class OutlinePlus extends Plugin {
@@ -23,6 +23,10 @@ export default class OutlinePlus extends Plugin {
 				this.registerEvent(eventRef);
 			}
 		});
+	}
+
+	onunload() {
+		this.updateOutlineView();
 	}
 
 	async loadSettings() {
@@ -52,6 +56,8 @@ export default class OutlinePlus extends Plugin {
 			}
 		});
 
+		this.updateOutlineView();
+
 		return true;
 	}
 
@@ -74,7 +80,8 @@ export default class OutlinePlus extends Plugin {
 						this.setCollapsible(this.vChildren.hasChildren());
 						const tmpContainer = createDiv();
 						await MarkdownRenderer.render(app, self.heading.heading, tmpContainer, self.view.file?.path ?? '', self.view);
-						self.innerEl.replaceChildren(...tmpContainer.firstChild?.childNodes ?? [])
+						self.innerEl.replaceChildren(...tmpContainer.firstChild?.childNodes ?? []);
+						self.innerEl.addClass('markdown-rendered');
 					} else {
 						old.call(self);
 					}
@@ -88,5 +95,12 @@ export default class OutlinePlus extends Plugin {
 				}
 			}
 		}));
+	}
+
+	updateOutlineView() {
+		this.app.workspace.getLeavesOfType('outline').forEach((leaf) => {
+			const view = leaf.view as OutlineView;
+			view.update();
+		});
 	}
 }

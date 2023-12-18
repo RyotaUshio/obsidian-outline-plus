@@ -35,11 +35,7 @@ export class OutlinePlusSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		this.addToggleSetting('renderMarkdown', () => {
-			this.plugin.app.workspace.getLeavesOfType('outline').forEach((leaf) => {
-				const view = leaf.view as OutlineView;
-				view.update();
-			});
-		}).setName('Render markdown in outline');
+		this.addToggleSetting('renderMarkdown', () => this.plugin.updateOutlineView())
+			.setName('Render markdown in outline');
 	}
 }
