@@ -1,7 +1,7 @@
 {
 	"id": "outline-plus",
 	"name": "Outline++",
-	"version": "0.1.3",
+	"version": "0.2.0",
 	"minAppVersion": "1.3.5",
 	"description": "Fix issues of the built-in outline view & optionally render markdown in it.",
 	"author": "Ryota Ushio",
