@@ -1,6 +1,9 @@
 # Obsidian Outline++
 
-This is an [Obsidian.md](https://obsidian.md) plugin to fix [some issues of the built-in outline view](https://forum.obsidian.md/t/headings-with-numbers-miss-in-toc-outline-of-heading/65155?u=ush). It also provides an option to render markdown in it.
+This [Obsidian.md](https://obsidian.md) plugin provides an option to render markdown in it.
+
+> [!NOTE]
+> This plugin was originally developed to fix [a bug of the built-in outline view](https://forum.obsidian.md/t/headings-with-numbers-miss-in-toc-outline-of-heading/65155?u=ush), which has been already fixed in Obsidian v1.5.4.
 
 ## Installation
 
